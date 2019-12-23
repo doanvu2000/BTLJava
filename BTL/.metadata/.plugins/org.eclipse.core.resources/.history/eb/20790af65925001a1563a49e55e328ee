@@ -1,0 +1,10 @@
+package Manage;
+
+import java.util.ArrayList;
+
+public class MemberVIP extends Person{
+	public static ArrayList<LopHoc> listClass = new ArrayList<LopHoc>();
+	public static void main(String[] args) {
+		
+	}
+}

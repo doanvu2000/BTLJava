@@ -1,0 +1,9 @@
+package Manage;
+
+import java.util.ArrayList;
+
+public class LopHoc {
+	private String codeClass;
+	private String nameClass;
+	private ArrayList<Member>;
+}

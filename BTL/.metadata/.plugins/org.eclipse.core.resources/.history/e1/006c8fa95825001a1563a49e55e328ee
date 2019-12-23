@@ -1,0 +1,5 @@
+package Manage;
+
+public class LopHoc {
+	private String codeClass;
+}

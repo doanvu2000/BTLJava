@@ -1,0 +1,50 @@
+package Manage;
+
+import java.util.ArrayList;
+
+public class LopHoc {
+	private String codeClass;
+	private String nameClass;
+	private ArrayList<Member> listMember = new ArrayList<Member>();
+	private ArrayList<MemberVIP> listLeader = new ArrayList<MemberVIP>();
+	
+	public LopHoc() {
+		super();
+		this.codeClass = codeClass;
+		this.nameClass = nameClass;
+		this.listMember = listMember;
+		this.listLeader = listLeader;
+	}
+	public LopHoc(String codeClass, String nameClass, ArrayList<Member> listMember, ArrayList<MemberVIP> listLeader) {
+		super();
+		this.codeClass = codeClass;
+		this.nameClass = nameClass;
+		this.listMember = listMember;
+		this.listLeader = listLeader;
+	}
+	public String getCodeClass() {
+		return codeClass;
+	}
+	public void setCodeClass(String codeClass) {
+		this.codeClass = codeClass;
+	}
+	public String getNameClass() {
+		return nameClass;
+	}
+	public void setNameClass(String nameClass) {
+		this.nameClass = nameClass;
+	}
+	public ArrayList<Member> getListMember() {
+		return listMember;
+	}
+	public void setListMember(ArrayList<Member> listMember) {
+		this.listMember = listMember;
+	}
+	public ArrayList<MemberVIP> getListLeader() {
+		return listLeader;
+	}
+	public void setListLeader(ArrayList<MemberVIP> listLeader) {
+		this.listLeader = listLeader;
+	}
+	
+}

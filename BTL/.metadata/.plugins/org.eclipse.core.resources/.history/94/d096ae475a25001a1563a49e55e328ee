@@ -1,0 +1,8 @@
+package Manage;
+
+import java.util.ArrayList;
+
+public class MemberVIP extends Person{
+	private ArrayList<LopHoc> listClass = new ArrayList<LopHoc>();//những lớp là leader/support đảm nhiệm
+	
+}

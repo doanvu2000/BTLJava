@@ -1,0 +1,9 @@
+package Manage;
+
+import java.util.ArrayList;
+
+public class Member extends Person{
+	private ArrayList<LopHoc> listClass = new ArrayList<LopHoc>();
+	private ArrayList<Float> Mark = new ArrayList<Float>();
+	private int dayAbsent = 0;
+}

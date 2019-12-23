@@ -1,0 +1,33 @@
+package Manage;
+
+public class Mark {
+	private String codeMember;
+	private String codeClass;
+	private double mark;
+	
+	public Mark(String codeMember, String codeClass, double mark) {
+		super();
+		this.codeMember = codeMember;
+		this.codeClass = codeClass;
+		this.mark = mark;
+	}
+	public String getCodeMember() {
+		return codeMember;
+	}
+	public void setCodeMember(String codeMember) {
+		this.codeMember = codeMember;
+	}
+	public String getCodeClass() {
+		return codeClass;
+	}
+	public void setCodeClass(String codeClass) {
+		this.codeClass = codeClass;
+	}
+	public double getMark() {
+		return mark;
+	}
+	public void setMark(double mark) {
+		this.mark = mark;
+	}
+	
+}

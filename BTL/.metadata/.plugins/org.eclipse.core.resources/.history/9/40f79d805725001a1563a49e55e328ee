@@ -1,0 +1,12 @@
+package Manage;
+
+public class Person {
+	private String code;
+	private String firstName;
+	private String lastName;
+	private String birth;
+	private String address;
+	private String major;
+	private int K;
+	
+}

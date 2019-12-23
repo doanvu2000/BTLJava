@@ -1,0 +1,6 @@
+package Manage;
+
+public class Mark {
+	private String codeMember;
+	private String codeClass;
+}
