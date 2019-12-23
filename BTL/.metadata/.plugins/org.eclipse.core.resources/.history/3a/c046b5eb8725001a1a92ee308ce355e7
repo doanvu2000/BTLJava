@@ -6,6 +6,6 @@ public class ManagementMemberHIT {
 	public static ArrayList<Member> listMember = new ArrayList<Member>();
 	public static ArrayList<MemberVIP> listMemberVIP = new ArrayList<MemberVIP>();
 	public static void main(String[] args) {
-		System.out.println("Hihi@@");
+		System.out.println("Hihi");
 	}
 }
