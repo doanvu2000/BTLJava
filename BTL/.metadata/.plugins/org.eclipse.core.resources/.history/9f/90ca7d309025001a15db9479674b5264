@@ -1,0 +1,41 @@
+package Manage;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ManagementMemberHIT {
+	public static ArrayList<Member> listMember = new ArrayList<Member>();
+	public static ArrayList<MemberVIP> listMemberVIP = new ArrayList<MemberVIP>();
+	public static void main(String[] args) {
+		
+	}
+	public static void inputInfor() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("\tNhập mã thành viên: ");
+		String memberCode = sc.nextLine();
+		System.out.print("\tNhập họ đệm: ");
+		String firtName = sc.nextLine();
+		System.out.print("\tNhập tên: ");
+		String lastName = sc.nextLine();
+		System.out.print("\tNhập ngày sinh: ");
+		String birth = sc.nextLine();
+		System.out.print("\tNhập địa chỉ: ");
+		String address = sc.nextLine();
+		System.out.print("\tNhập ngành học: ");
+		String major = sc.nextLine();
+		System.out.print("\tNhập khóa đang học: ");
+		int K = sc.nextInt();
+		System.out.print("\tNhập SĐT: ");
+		sc.nextLine();
+		String phone = sc.nextLine();
+		System.out.print("\tNhập vị trí: ");
+		String position = sc.nextLine();
+		if(position.compareTo("Leader") == 0) {// là leader => add các lớp mà leader đó đứng lớp 
+			
+		}else if(position.compareTo("Support") == 0) {// là support
+			
+		}else {//Ban quản trị, ban chủ nhiệm ??
+			
+		}
+	};
+}

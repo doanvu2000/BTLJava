@@ -1,0 +1,50 @@
+package Manage;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class MemberVIP extends Person{
+	private ArrayList<LopHoc> listClass = new ArrayList<LopHoc>();//những lớp là leader/support đảm nhiệm
+
+	public MemberVIP() {
+		super();
+	}
+
+	public MemberVIP(String code, String firstName, String lastName, String birth, String address, String major, int k,
+			String phone, String position, ArrayList<LopHoc> listClass) {
+		super(code, firstName, lastName, birth, address, major, k, phone, position);
+		this.listClass = listClass;
+	}
+
+	public ArrayList<LopHoc> getListClass() {
+		return listClass;
+	}
+
+	public void setListClass(ArrayList<LopHoc> listClass) {
+		this.listClass = listClass;
+	}
+	public void inputInfor() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("\tNhập mã thành viên: ");
+		setMemberCode(sc.nextLine());
+		System.out.print("\tNhập họ đệm: ");
+		setFirstName(sc.nextLine());
+		System.out.print("\tNhập tên: ");
+		setLastName(sc.nextLine());
+		System.out.print("\tNhập ngày sinh: ");
+		setBirth(sc.nextLine());
+		System.out.print("\tNhập địa chỉ: ");
+		setAddress(sc.nextLine());
+		System.out.print("\tNhập ngành học: ");
+		setMajor(sc.nextLine());
+		System.out.print("\tNhập khóa đang: ");
+		setK(sc.nextInt());
+		System.out.print("\tNhập SĐT: ");
+		setLastName(sc.nextLine());
+		System.out.print("\tNhập vị trí: ");
+		setLastName(sc.nextLine());
+		
+	};
+	public void outputInfor() {};
+	
+}
