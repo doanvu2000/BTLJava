@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class ManagementMemberHIT {
 	public static ArrayList<Member> listMember = new ArrayList<Member>();
 	public static ArrayList<MemberVIP> listMemberVIP = new ArrayList<MemberVIP>();
+<<<<<<< HEAD
 	public static ArrayList<LopHoc> listClass = new ArrayList<LopHoc>();
 	public static void main(String[] args) {
 		
@@ -114,6 +115,9 @@ public class ManagementMemberHIT {
 			}
 		}
 		return -1;
-
+=======
+	public static void main(String[] args) {
+		System.out.println("Hihi@@");
+>>>>>>> c28016804cb8cd46aad675c9707488c74620a95b
 	}
 }
