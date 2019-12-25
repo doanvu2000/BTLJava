@@ -1,0 +1,320 @@
+package Manage;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ManagementMemberHIT {
+	public static ArrayList<Member> listMember = new ArrayList<Member>();
+	public static ArrayList<MemberVIP> listMemberVIP = new ArrayList<MemberVIP>();
+	public static ArrayList<LopHoc> listClass = new ArrayList<LopHoc>();
+	public static ArrayList<Mark> listMark = new ArrayList<Mark>();
+	static Scanner sc = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		System.out.println();
+		System.out.println("******************************CHƯƠNG TRÌNH QUẢN LÝ THÀNH VIÊN CLB HIT******************************");
+		System.out.println();
+		menu();
+	}
+	public static void menu() {
+		System.out.println("\t\t**********************************************************");
+		System.out.println("\t\t=====================MENU CHƯƠNG TRÌNH====================");
+		System.out.println("\t\t**\t\t0.Thoát chương trình\t\t\t**");
+		System.out.println("\t\t**\t\t1.Quản lý thành viên HIT\t\t**");
+		System.out.println("\t\t**\t\t2.Quản lý các lớp học của HIT\t\t**");
+		System.out.println("\t\t**********************************************************");
+		System.out.println();
+		int chose;
+		do {
+			System.out.print("\tNhập lựa chọn của bạn: ");
+			chose = sc.nextInt();
+			switch (chose) {
+				case 0: System.out.println("\tChương trình đã thoát!");return;
+				case 1: System.out.println("\t======Quản lý thành viên HIT======");{
+					menu1();break;
+				}
+				case 2: System.out.println("\t======Quản lý các lớp học của HIT=====");{
+					menu2();break;
+				}
+				default: System.out.println("Không hợp lệ, chương trình thoát !");return;
+			}
+		}while(true);
+	}
+	public static void menu1() {
+		System.out.println("\t\t0.Back");
+		System.out.println("\t\t1.Hiển thị danh sách thành viên");
+		System.out.println("\t\t2.Thêm thành viên");
+		System.out.println("\t\t3.Sửa thông tinthành viên");
+		System.out.println("\t\t4.Xóa thành viên");
+		System.out.println("\t\t5.Tìm kiếm thành viên");
+		int chose;
+		do {
+			System.out.print("\tNhập lựa chọn của bạn: ");
+			chose = sc.nextInt();
+			switch (chose) {
+				case 0: System.out.println("\tChương trình đã quay lại");return;
+				case 1: {
+					System.out.println("\t======Hiển thị danh sách thành viên======");
+					showListMember();break;
+				}
+				case 2: {// Xong
+					System.out.println("\t\t2.Thêm thành viên");
+					addMember();break;
+				}
+				case 3: {
+					System.out.println("\t\t3.Sửa thông tinthành viên");
+					System.out.print("Nhập mã thành viên cần xóa: ");
+					String code = sc.nextLine();
+					updateMember(code);break;
+				}
+				case 4: {
+					System.out.println("\t\t4.Xóa thành viên");
+					System.out.print("Nhập mã thành viên cần xóa: ");
+					String code = sc.nextLine();
+					removeMember(code);break;
+				}
+				case 5: {
+					System.out.println("\t\t5.Tìm kiếm thành viên");
+					System.out.print("Nhập mã thành viên cần tìm kiếm: ");
+					String code = sc.nextLine();
+					searchMember(code);break;
+				}
+				default: System.out.println("Không hợp lệ, chương trình thoát !");return;
+			}
+		}while(true);
+	}
+	public static void menu2() {
+		
+	}
+	public static void addMember() {
+		
+		System.out.print("\tNhập mã thành viên: ");
+		String memberCode = sc.nextLine();
+		System.out.print("\tNhập họ đệm: ");
+		String firstName = sc.nextLine();
+		System.out.print("\tNhập tên: ");
+		String lastName = sc.nextLine();
+		System.out.print("\tNhập ngày sinh: ");
+		String birth = sc.nextLine();
+		System.out.print("\tNhập địa chỉ: ");
+		String address = sc.nextLine();
+		System.out.print("\tNhập ngành học: ");
+		String major = sc.nextLine();
+		System.out.print("\tNhập khóa đang học: ");
+		int K = sc.nextInt();
+		System.out.print("\tNhập SĐT: ");
+		sc.nextLine();
+		String phone = sc.nextLine();
+		String position = null;
+		do {
+			System.out.print("\tNhập vị trí: ");
+			position = sc.nextLine();
+			if (position.compareTo("Leader") != 0 && position.compareTo("Support") != 0
+					&& position.compareTo("Normal") != 0 && position.compareTo("Ban quản trị") != 0
+					&& position.compareTo("Ban chủ nhiệm") != 0)
+				System.out.println(
+						"Phải nhập 1 trong những vị trí sau: Leader, Support, Normal, Ban quản trị, Ban chủ nhiệm!");
+		} while (position.compareTo("Leader") != 0 && position.compareTo("Support") != 0
+				&& position.compareTo("Normal") != 0 && position.compareTo("Ban quản trị") != 0
+				&& position.compareTo("Ban chủ nhiệm") != 0);
+		// postiton = Leader, Support, Normal, Ban quản trị, Ban chủ nhiệm
+
+		if (position.compareTo("Leader") == 0) {// là leader => add các lớp mà leader đó đứng lớp
+			System.out.println(
+					"\t======Nhập các lớp mà leader + " + firstName + " " + lastName + " đứng lớp =======");
+			int size;
+			do { // Nhập số lớp mà leader đứng lớp
+				System.out.print("Nhập số lượng lớp " + firstName + " " + lastName + " leader:");
+				size = sc.nextInt();
+				if (size > listClass.size()) {
+					System.out.println("Hiện tại HIT chỉ có " + listClass.size()
+							+ " lớp, mời bạn nhập số lớp <= " + listClass.size());
+				} else {
+					if (size <= 0)
+						System.out.println("Số lớp không thể <= 0,mời bạn nhập lại số lớp");
+				}
+			} while (size > listClass.size() || size <= 0);
+
+			System.out.println("Nhập lần lượt các mã lớp");
+			int index = 0;
+			ArrayList<String> listclass = new ArrayList<String>(); // danh sách các lớp mà leader đứng lớp
+			String codeClass;
+			for (int i = 0; i < size; i++) {// lần lượt nhập các mã lớp đến khi thỏa mãn đủ size mã lớp thì
+											// add
+				do {
+					System.out.print("Lớp thứ " + (i + 1) + " : ");
+					codeClass = sc.nextLine();
+					index = indexofClass(codeClass);
+					if (index == -1) {
+						System.out.println(
+								"Mã lớp này không có trong danh sách lớp của HIT, mời bạn nhập lại");
+					}
+				} while (index == -1);
+				// sau khi có size mã lớp đã đúng: => add size mã lớp này vào listclass
+				// của leader
+				listclass.add(codeClass);
+			}
+			MemberVIP leader = new MemberVIP(memberCode, firstName, lastName, birth, address, major, K, phone, position,
+					listclass);
+			for (int i = 0; i < listclass.size(); i++) {// duyệt lại mảng listclass để add leader vào từng lớp
+														// trong listClass
+				index = indexofClass(listclass.get(i)); // vị trí của mã lớp đấy trong mảng listClass
+				// tiến hành add vào listClass
+				listClass.get(index).getListLeader().add(leader);
+			}
+			listclass.clear();// tạo mới listclass để dùng lại
+		} else if (position.compareTo("Support") == 0) {// là support => add các lớp mà support đó support
+			System.out.println(
+					"\t======Nhập các lớp mà support + " + firstName + " " + lastName + " support =======");
+			int size;
+			do { // Nhập số lớp mà support đảm nhiệm
+				System.out.print("Nhập số lượng lớp " + firstName + " " + lastName + " support:");
+				size = sc.nextInt();
+				if (size > listClass.size()) {
+					System.out.println("Hiện tại HIT chỉ có " + listClass.size()
+							+ " lớp, mời bạn nhập số lớp <= " + listClass.size());
+				} else {
+					if (size <= 0)
+						System.out.println("Số lớp không thể <= 0,mời bạn nhập lại số lớp");
+				}
+			} while (size > listClass.size() || size <= 0);
+
+			System.out.println("Nhập lần lượt các mã lớp");
+			int index = 0;
+			ArrayList<String> listclass = new ArrayList<String>(); // danh sách các lớp mà support đảm nhiệm
+			String codeClass;
+			for (int i = 0; i < size; i++) {// lần lượt nhập các mã lớp đến khi thỏa mãn đủ size mã lớp thì
+											// add
+				do {
+					System.out.print("Lớp thứ " + (i + 1) + " : ");
+					codeClass = sc.nextLine();
+					index = indexofClass(codeClass);
+					if (index == -1) {
+						System.out.println(
+								"Mã lớp này không có trong danh sách lớp của HIT, mời bạn nhập lại");
+					}
+				} while (index == -1);
+				// sau khi cómã lớp đã đúng: => add size mã lớp này vào listclass
+				listclass.add(codeClass);
+			}
+			MemberVIP leader = new MemberVIP(memberCode, firstName, lastName, birth, address, major, K, phone, position,
+					listclass);
+			for (int i = 0; i < listclass.size(); i++) {// duyệt lại mảng listclass để add leader vào từng lớp
+														// trong listClass
+				index = indexofClass(listclass.get(i)); // vị trí của mã lớp đấy trong mảng listClass
+				// tiến hành add vào listClass
+				listClass.get(index).getListLeader().add(leader);
+			}
+			listclass.clear();// tạo mới listclass để dùng lại
+		} else if (position.compareTo("Normal") == 0) {// là thành viên bình thường => nhập vào danh sách lớp
+														// mà thành viên này học
+			int count;
+			do {
+				System.out.print("\tNhập số lượng lớp của CLB mà thành viên này đang tham gia: ");
+				count = sc.nextInt();
+				if (count < 0) {
+					System.out.println("Số lớp >=0 và <= " + listClass.size());
+				} else if (count > listClass.size()) {
+					System.out.println("Hiện tại HIT chỉ có " + listClass.size()
+							+ " lớp, mời bạn nhập số lớp <= " + listClass.size());
+				}
+			} while (count < 0 || count > listClass.size());
+			// count: số lớp mà thành viên tham gia
+			int index = 0;
+			ArrayList<String> listclass = new ArrayList<String>(); // danh sách các lớp mà thành viên học
+			String codeClass = null;
+			ArrayList<Mark> listmark = new ArrayList<Mark>();
+			int dayAbsent = 0;
+			for (int i = 0; i < count; i++) {// lần lượt nhập các mã lớp đến khi thỏa mãn đủ size mã lớp
+												// thì add
+				do {
+					System.out.print("Lớp thứ " + (i + 1) + " : ");
+					codeClass = sc.nextLine();
+					index = indexofClass(codeClass);
+					if (index == -1) {
+						System.out.println(
+								"Mã lớp này không có trong danh sách lớp của HIT, mời bạn nhập lại");
+					}
+				} while (index == -1);
+				// sau khi có mã lớp đã đúng: => add mã lớp này vào listclass
+				listclass.add(codeClass);
+				// và nhập thêm số ngày nghỉ ở lớp này
+				do {
+					System.out.print("\tNhập số ngày vắng: ");
+					dayAbsent = sc.nextInt();
+					if (dayAbsent < 0)
+						System.out.println("Số ngày nghỉ phải >=0, mời nhập lại!");
+				} while (dayAbsent < 0);
+				// nhập điểm của môn học này
+				double mark;
+				do {
+					System.out.print("\tNhập điểm môn " + getClassNameByCode(codeClass) + " : ");
+					mark = sc.nextDouble();
+					if (mark < 0 || mark > 10)
+						System.out.println("Điểm phải nằm trong khoảng từ 0 đến 10");
+				} while (mark < 0 || mark > 10);
+				listmark.add(new Mark(codeClass, mark));
+			}
+			// Duyệt lại listclass để add các thành viên này vào trong listClass
+			Member normal = new Member(codeClass, firstName, lastName, birth, address, major, K, phone, position,
+					listclass, listmark, dayAbsent);
+			for (int i = 0; i < listclass.size(); i++) {
+				index = indexofClass(listclass.get(i));
+				// add member vào trong lớp mà thành viên này học ở trong listClass
+				listClass.get(index).getListMember().add(normal);
+			}
+		} else if (position.compareTo("Ban quản trị") == 0 || position.compareTo("Ban chủ nhiệm") == 0) {
+			// Ban quản trị, Ban chủ nhiệm => add vào ArrayList MemberVIP
+			listMemberVIP.add(
+					new MemberVIP(memberCode, firstName, lastName, birth, address, major, K, phone, position, null));
+		}
+	}
+	public static void removeMember(String memberCode) {//Xóa 1 thành viên trong CLB
+		int index1 = indexofListMember(memberCode);
+		int index2 = indexofListMemberVIP(memberCode);
+		if (index1 == -1 && index2 == -1) {
+			System.out.println("\tMã thành viên này không có trong HIT, thoát hàm removeMember()");
+			return;
+		}
+		if (index1>=0) listMember.remove(index1);
+		else if (index2 >=0) listMemberVIP.remove(index2);
+		System.out.println("===========Bạn đã xóa thành công===========");
+	}
+	public static void showListMember() {}
+	public static void updateMember(String memberCode) {}
+	public static void searchMember(String memberCode) {}
+	public static int indexofClass(String codeClass) {
+		for (int i = 0; i < listClass.size(); i++) {
+			if (codeClass.compareToIgnoreCase(listClass.get(i).getCodeClass()) == 0) {
+				return i;
+			}
+		}
+		return -1;
+
+	}
+	public static int indexofListMember(String memberCode) {
+		for (int i = 0; i < listMember.size(); i++) {
+			if (memberCode.compareTo(listMember.get(i).getMemberCode())==0) 
+				return i;
+		}
+		return -1;
+	}
+	public static int indexofListMemberVIP(String memberCode) {
+		for (int i = 0; i < listMemberVIP.size(); i++) {
+			if (memberCode.compareTo(listMemberVIP.get(i).getMemberCode())==0) 
+				return i;
+		}
+		return -1;
+	}
+	public static String getClassNameByCode(String codeClass) {
+		int index = -1;
+		for (int i = 0; i < listClass.size(); i++) {
+			if (codeClass.compareToIgnoreCase(listClass.get(i).getCodeClass()) == 0) {
+				index = i;
+			}
+		}
+		if (index == -1)
+			return null;
+		return listClass.get(index).getNameClass();
+	}
+}

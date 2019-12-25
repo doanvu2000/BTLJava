@@ -3,6 +3,8 @@
 <fullyQualifiedTypeName name="Manage.Person"/>
 <fullyQualifiedTypeName name="Manage.LopHoc"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="Manage.MemberVIP"/>
+<fullyQualifiedTypeName name="Manage.Mark"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="Manage.Member"/>
 </qualifiedTypeNameHistroy>

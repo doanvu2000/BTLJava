@@ -3,8 +3,9 @@ package Manage;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MemberVIP extends Person{
-	private ArrayList<String> listClass = new ArrayList<String>();//những lớp là leader/support đảm nhiệm, nếu là ban quản trị,chủ nhiệm thì = null
+public class MemberVIP extends Person {
+	private ArrayList<String> listClass = new ArrayList<String>();// những lớp là leader/support đảm nhiệm, nếu
+																	// là ban quản trị,chủ nhiệm thì = null
 
 	public MemberVIP() {
 		super();
@@ -23,7 +24,8 @@ public class MemberVIP extends Person{
 	public void setListClass(ArrayList<String> listClass) {
 		this.listClass = listClass;
 	}
-	
-	public void showInfor() {};
-	
+
+	public void ShowInfor() {
+	};
+
 }
