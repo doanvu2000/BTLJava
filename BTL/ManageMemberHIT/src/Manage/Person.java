@@ -95,4 +95,12 @@ public class Person {
 	public void setPosition(String position) {
 		this.position = position;
 	}
+
+	@Override
+	public String toString() {
+		return "Person [memberCode=" + memberCode + ", firstName=" + firstName + ", lastName=" + lastName + ", birth="
+				+ birth + ", address=" + address + ", major=" + major + ", K=" + K + ", phone=" + phone + ", position="
+				+ position + "]";
+	}
+	
 }

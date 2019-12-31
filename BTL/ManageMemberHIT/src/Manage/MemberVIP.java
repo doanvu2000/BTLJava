@@ -26,6 +26,20 @@ public class MemberVIP extends Person {
 	}
 
 	public void ShowInfor() {
-	};
+		System.out.print("Mã sv=" + this.getMemberCode() + ", Họ=" + this.getFirstName() + ", Tên=" + this.getLastName() + ", Ngày sinh="
+				+ this.getBirth() + ", Địa chỉ=" + this.getAddress() + ", Chuyên ngành=" + this.getMajor() + ", Khóa=" + this.getK() + "\n\t Số đt=" + this.getPhone() + ", Chức vụ="
+				+ this.getPosition()+", ");
+		
+		if (listClass.size()>0) {
+			System.out.print("Lớp quản lý:");
+			for(String x: listClass) {
+				System.out.print(x+", ");
+			}
+			
+		}
+		System.out.println();
+	}
 
+	
+	
 }
